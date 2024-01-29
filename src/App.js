@@ -1,14 +1,26 @@
 import "./App.css";
-import { CustomerList } from "./components/customers/CustomersList";
-import { EmployeeList } from "./components/employees/EmployeeList";
-import { TicketList } from "./components/tickets/TicketList";
+import { Route, Routes } from "react-router-dom";
+import { Login } from "./components/auth/Login";
+import { Register } from "./components/auth/Register";
+import { ApplicationViews } from "./views/ApplicationViews";
+import { Authorized } from "./views/Authorized";
 
 export const App = () => {
   return (
-    <>
-      {/* <TicketList /> */}
-      {/* <CustomerList /> */}
-      <EmployeeList />
-    </>
+    <Routes>
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+
+      <Route
+        path="*"
+        element={
+          //check if the user is authorized
+          <Authorized>
+            {/* ApplicationViews is the child component of Authorized */}
+            <ApplicationViews />
+          </Authorized>
+        }
+      />
+    </Routes>
   );
 };
