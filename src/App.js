@@ -1,9 +1,11 @@
 import "./App.css";
+
 import { Route, Routes } from "react-router-dom";
 import { Login } from "./components/auth/Login";
 import { Register } from "./components/auth/Register";
 import { ApplicationViews } from "./views/ApplicationViews";
 import { Authorized } from "./views/Authorized";
+
 
 export const App = () => {
   return (
